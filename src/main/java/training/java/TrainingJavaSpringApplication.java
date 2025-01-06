@@ -13,8 +13,8 @@ public class TrainingJavaSpringApplication {
     public static void main(String[] args) {
         Context = SpringApplication.run(TrainingJavaSpringApplication.class, args);
 
-        TestDI();
-        TestLocalMicrosoftSQLServer();
+        //TestDI();
+        //TestLocalMicrosoftSQLServer();
     }
 
     public static void TestDI(){

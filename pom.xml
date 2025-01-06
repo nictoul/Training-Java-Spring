@@ -52,9 +52,17 @@
             <version>12.8.1.jre11</version>
         </dependency>
 
+        <!--        Transform app that end in a never ending app that serve 8080 default port        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--        Convert JSP server into servlet        -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>10.1.17</version> <!--        seem to not work with a recent version (10.1.34)        -->
         </dependency>
     </dependencies>
 
