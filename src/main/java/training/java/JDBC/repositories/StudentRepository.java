@@ -22,16 +22,16 @@ public class StudentRepository {
     public void save(Student student) {
         String sql = "insert into student(rownumber, name, age) values (?, ?, ?)";
         int rowsAffected = jdbcTemplate.update(sql, student.getRowNumber(), student.getName(), student.getAge());
-        logger.info(rowsAffected + " rows affected");
+        logger.info("{} rows affected", rowsAffected);
     }
 
     public List<Student> findAll() {
         String sql="select * from student"; RowMapper<Student> mapper=(rs, rowNum) ->
         {
             Student s=new Student();
-            s.setRowNumber(rs.getInt("rollno"));
+            s.setRowNumber(rs.getInt("rownumber"));
             s.setName(rs.getString("name"));
-            s.setAge(rs.getInt("marks"));
+            s.setAge(rs.getInt("age"));
             return s;
 
         };
@@ -46,5 +46,11 @@ public class StudentRepository {
     @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbc) {
         this.jdbcTemplate = jdbc;
+    }
+
+    public void delete(Student s) {
+        String sql = "delete from student where rownumber=?";
+        int rowsAffected = jdbcTemplate.update(sql, s.getRowNumber());
+        logger.info("{} rows deleted", rowsAffected);
     }
 }

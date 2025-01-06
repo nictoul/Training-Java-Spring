@@ -24,6 +24,7 @@ public class TrainingJavaSpringApplication {
         StudentService service=context.getBean(StudentService.class);
         service.AddStudent(s);
 
+        service.DeleteStudent(s);
 //        List<Student> students=service.getStudents();
 //        System.out.println(students);
     }

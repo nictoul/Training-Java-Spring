@@ -27,4 +27,8 @@ public class StudentService {
     public List<Student> getStudents() {
         return studentRepository.findAll();
     }
+
+    public void DeleteStudent(Student s) {
+        studentRepository.delete(s);
+    }
 }
