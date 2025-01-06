@@ -35,8 +35,10 @@ public class StudentRepository {
             return s;
 
         };
+        var students=jdbcTemplate.query(sql, mapper);
+        logger.info("Students: {}", students);
 
-        return jdbcTemplate.query(sql, mapper);
+        return students;
     }
 
     @Autowired

@@ -6,28 +6,34 @@ import training.java.DependencyInjection.Developer;
 import training.java.JDBC.models.Student;
 import training.java.JDBC.services.StudentService;
 
-import java.util.List;
-
 @SpringBootApplication
 public class TrainingJavaSpringApplication {
+    static org.springframework.context.ConfigurableApplicationContext Context = null;
 
     public static void main(String[] args) {
+        Context = SpringApplication.run(TrainingJavaSpringApplication.class, args);
 
-        var context = SpringApplication.run(TrainingJavaSpringApplication.class, args);
-        Developer developer = (Developer) context.getBean("developer");
+        TestDI();
+        TestLocalMicrosoftSQLServer();
+    }
+
+    public static void TestDI(){
+        Developer developer = (Developer) Context.getBean("developer");
         developer.DoSomething();
+    }
 
-        Student s= context.getBean(Student.class);
+    public static void TestLocalMicrosoftSQLServer(){
+        Student s= Context.getBean(Student.class);
         s.setRowNumber(104);
         s.setName("Navin");
         s.setAge(78);
-        StudentService service=context.getBean(StudentService.class);
+        StudentService service=Context.getBean(StudentService.class);
+
         service.AddStudent(s);
-        List<Student> students=service.getStudents();
-        System.out.println(students);
+
+        service.getStudents();
 
         service.DeleteStudent(s);
-
     }
 
 }
