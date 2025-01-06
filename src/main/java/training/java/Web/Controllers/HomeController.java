@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import training.java.Web.models.SimpleObject;
@@ -36,7 +35,7 @@ public class HomeController {
 
     //curl example: http://localhost:8080/useObject?id=123&name=toto
     @RequestMapping("/useObject")
-    @ResponseBody //specify to not look for a view (the tomcat-jasper dependency) and return plain text
+    @ResponseBody //specify to not look for a view (the tomcat-jasper dependency) and return plain text. For a rest API (backend server) just don't use the tomcat-jasper dependency
     public String useObject(SimpleObject simpleObject){
         logger.info("HomeController useObject called");
         logger.info("SimpleObject: " + simpleObject);
@@ -49,5 +48,13 @@ public class HomeController {
 
         session.setAttribute("result", "This is an example");
         return "session";
+    }
+
+    @PostMapping("/postexample")
+    public void showPostExample(@RequestParam String paramExample, @RequestParam(required = false) String optional, @RequestBody SimpleObject simpleObject){
+        logger.info("HomeController showPostExample called");
+        logger.info("paramExample: " + paramExample);
+        logger.info("optional: " + optional);
+        logger.info("SimpleObject: " + simpleObject);
     }
 }
