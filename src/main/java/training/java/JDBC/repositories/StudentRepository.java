@@ -39,10 +39,6 @@ public class StudentRepository {
         return jdbcTemplate.query(sql, mapper);
     }
 
-    public JdbcTemplate getJdbcTemplate() {
-        return jdbcTemplate;
-    }
-
     @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbc) {
         this.jdbcTemplate = jdbc;

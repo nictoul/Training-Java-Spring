@@ -23,10 +23,11 @@ public class TrainingJavaSpringApplication {
         s.setAge(78);
         StudentService service=context.getBean(StudentService.class);
         service.AddStudent(s);
+        List<Student> students=service.getStudents();
+        System.out.println(students);
 
         service.DeleteStudent(s);
-//        List<Student> students=service.getStudents();
-//        System.out.println(students);
+
     }
 
 }
