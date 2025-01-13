@@ -6,8 +6,7 @@ import training.java.DependencyInjection.Developer;
 import training.java.JDBC.models.Student;
 import training.java.JDBC.repositories.StudentRepository;
 import training.java.JDBC.services.StudentService;
-import training.java.JPA_ORM.Repository.StudentJpa;
-import training.java.JPA_ORM.Repository.StudentRepo;
+import training.java.JPA_ORM.Repository.ShowJpaUsage;
 
 @SpringBootApplication
 public class TrainingJavaSpringApplication {
@@ -49,26 +48,8 @@ public class TrainingJavaSpringApplication {
     }
 
     public static void TestJPAAndORM(){
-        //Table will be automatically created if not . (with spring.jpa.hibernate.ddl-auto=update app.property
-        var repo = Context.getBean(StudentRepo.class);
-
-        var student1 = Context.getBean(StudentJpa.class);
-        var student2 = Context.getBean(StudentJpa.class);
-
-        student1.setRowNumber(104);
-        student1.setName("Navin");
-        student1.setAge(78);
-
-        student2.setRowNumber(123);
-        student2.setName("Nicos");
-        student2.setAge(156);
-
-        repo.save(student1);
-        repo.save(student2);
-
-        var studentJpa = repo.findAll();
-        System.out.println(studentJpa);
-
+        var showJpa = Context.getBean(ShowJpaUsage.class);
+        showJpa.ShowJpaUsage();
     }
 
 }

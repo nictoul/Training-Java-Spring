@@ -1,5 +1,7 @@
 # Training-Java-Spring
+This is a simple java app to make some tests
 
+The app connect to a local SQL database. To remove that part you should comment the "spring-boot-starter-data-jpa" dependency in the "pom.xml" file 
 # Setup of the project
 To run it with an IDE there is 2 env. variables that need to be configured
 ```
