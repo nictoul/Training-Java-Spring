@@ -1,9 +1,6 @@
 # Training-Java-Spring
 This is a simple java app to make some tests
 
-The app connect to a local SQL database. To remove that part you should comment the "spring-boot-starter-data-jpa" dependency in the "pom.xml" file
-You also need to comment all JPA related code (package JPA_ORM) and some code in the main file TrainingJavaSpringApplication
-
 # Setup of the project
 
 # local run
