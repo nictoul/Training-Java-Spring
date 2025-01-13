@@ -1,0 +1,19 @@
+﻿services:
+  app:
+    build: .
+    ports:
+      #host:container
+      - "8080:8080"
+      - "55178:55178"
+    environment:
+      - DB_USERNAME=sa
+      - DB_PASSWORD=p0o9i8u7
+      # to allow the connection we need to refer to the host that run the container. If we use "localhost" we refer to the container. That's why we need to use "host.docker.internal"
+      # By using localhost in the container we assume that the local database run in the container.
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://host.docker.internal:55178;instanceName=STP2022-10;databaseName=NicTests;encrypt=true;trustServerCertificate=true
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

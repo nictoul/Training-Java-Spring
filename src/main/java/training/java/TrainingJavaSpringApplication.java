@@ -14,11 +14,19 @@ public class TrainingJavaSpringApplication {
     static org.springframework.context.ConfigurableApplicationContext Context = null;
 
     public static void main(String[] args) {
+        PrintEnvVariables();
         Context = SpringApplication.run(TrainingJavaSpringApplication.class, args);
 
         //TestDI();
         //TestLocalMicrosoftSQLServer();
-        TestJPAAndORM();
+        //TestJPAAndORM();
+    }
+
+    private static void PrintEnvVariables() {
+        System.out.println("---------Env variables ------------");
+        System.out.println("SPRING_DATASOURCE_URL: " + System.getenv("SPRING_DATASOURCE_URL"));
+        System.out.println("DB_USERNAME: " + System.getenv("DB_USERNAME"));
+        System.out.println("DB_PASSWORD: " + System.getenv("DB_PASSWORD"));
     }
 
     public static void TestDI(){
