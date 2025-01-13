@@ -1,15 +1,15 @@
 # Training-Java-Spring
 This is a simple java app to make some tests
 
-The app connect to a local SQL database. To remove that part you should comment the "spring-boot-starter-data-jpa" dependency in the "pom.xml" file 
+The app connect to a local SQL database. To remove that part you should comment the "spring-boot-starter-data-jpa" dependency in the "pom.xml" file
+You also need to comment all JPA related code (package JPA_ORM) and some code in the main file TrainingJavaSpringApplication
+
 # Setup of the project
-To run it with an IDE there is 2 env. variables that need to be configured
-```
-DB_USERNAME=sa;DB_PASSWORD=p0o9i8u7
-```
+
 # local run
 ## Envrionment variables
 The file .env is use for environment variables
+you need to tell intellij to take it in you run configuration
 
 # docker-compose
 ## Build

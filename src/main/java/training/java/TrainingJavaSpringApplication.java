@@ -6,7 +6,7 @@ import training.java.DependencyInjection.Developer;
 import training.java.JDBC.models.Student;
 import training.java.JDBC.repositories.StudentRepository;
 import training.java.JDBC.services.StudentService;
-import training.java.JPA_ORM.Repository.ShowJpaUsage;
+//import training.java.JPA_ORM.Repository.ShowJpaUsage;
 
 @SpringBootApplication
 public class TrainingJavaSpringApplication {
@@ -47,9 +47,9 @@ public class TrainingJavaSpringApplication {
         service.getStudents();
     }
 
-    public static void TestJPAAndORM(){
-        var showJpa = Context.getBean(ShowJpaUsage.class);
-        showJpa.ShowJpaUsage();
-    }
+//    public static void TestJPAAndORM(){
+//        var showJpa = Context.getBean(ShowJpaUsage.class);
+//        showJpa.ShowJpaUsage();
+//    }
 
 }
