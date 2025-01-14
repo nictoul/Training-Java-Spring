@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class SimpleRestController {
     private static final Logger logger = LoggerFactory.getLogger(SimpleRestController.class);
 
-    @GetMapping("/get") //specify to serve the base path. ex: localhost:8080
+    @GetMapping("/get")
     public ResponseEntity home(){
         logger.info("RestController get route called");
         return ResponseEntity.ok("Hello world! You can rest if you are tire but you should try REST API instead");
