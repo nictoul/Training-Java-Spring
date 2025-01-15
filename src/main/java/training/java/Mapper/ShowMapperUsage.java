@@ -1,9 +1,15 @@
 package training.java.Mapper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ShowMapperUsage {
+    private static final Logger logger = LoggerFactory.getLogger(ShowMapperUsage.class);
+    @Autowired
+    SimpleMapper mapper;
 
     public void showMappingUsage(){
         var simpleDto = new SimpleDto();
@@ -14,7 +20,10 @@ public class ShowMapperUsage {
         simpleEntity.id = 4567L;
         simpleEntity.name = "SimpleEntityName";
 
-        SimpleDto dto = SimpleMapper.INSTANCE.entityToDto(simpleEntity);
-        SimpleEntity user = SimpleMapper.INSTANCE.dtoToEntity(simpleDto);
+        SimpleDto dto = mapper.entityToDto(simpleEntity);
+        SimpleEntity entity = mapper.dtoToEntity(simpleDto);
+
+        logger.info(dto.toString());
+        logger.info(entity.toString());
     }
 }

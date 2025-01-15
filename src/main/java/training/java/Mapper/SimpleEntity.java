@@ -1,12 +1,9 @@
 package training.java.Mapper;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
+
+@Data //Combine @ToString, @EqualsAndHashCode, @Getter / @Setter and @RequiredArgsConstructor together
 public class SimpleEntity {
     public Long id;
     public String name;

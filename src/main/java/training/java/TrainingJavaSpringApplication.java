@@ -6,6 +6,7 @@ import training.java.DependencyInjection.Developer;
 import training.java.JDBC.models.Student;
 import training.java.JDBC.repositories.StudentRepository;
 import training.java.JDBC.services.StudentService;
+import training.java.Mapper.ShowMapperUsage;
 //import training.java.JPA_ORM.Repository.ShowJpaUsage;
 
 @SpringBootApplication
@@ -19,6 +20,12 @@ public class TrainingJavaSpringApplication {
         //TestDI();
         //TestLocalMicrosoftSQLServer();
         //TestJPAAndORM();
+        //TestMapping();
+    }
+
+    private static void TestMapping() {
+        var showMapper = Context.getBean(ShowMapperUsage.class);
+        showMapper.showMappingUsage();
     }
 
     private static void PrintEnvVariables() {

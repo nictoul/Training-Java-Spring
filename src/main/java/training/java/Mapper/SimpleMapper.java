@@ -3,7 +3,7 @@ package training.java.Mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface SimpleMapper {
     SimpleMapper INSTANCE = Mappers.getMapper(SimpleMapper.class);
 
